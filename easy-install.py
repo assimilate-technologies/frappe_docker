@@ -118,8 +118,14 @@ def check_repo_exists() -> bool:
 def setup_prod(project: str, sites, email: str, version: str = None, image = None) -> None:
 	if len(sites) == 0:
 		sites = [
-			"saisevacare.com",
-			"hrms-ed.assimilate.co.in"
+            "hrms-demo.assimilate.co.in",
+            "crm-demo.assimilate.co.in",
+            "ams-demo.assimilate.co.in",
+            "helpdesk-demo.assimilate.co.in",
+            "hms-demo.assimilate.co.in",
+            "erp-demo.assimilate.co.in",
+            "rms-demo.assimilate.co.in",
+            "all-demo.assimilate.co.in"
 			]
 
 	if check_repo_exists():
