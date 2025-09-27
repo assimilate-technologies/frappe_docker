@@ -119,13 +119,6 @@ def setup_prod(project: str, sites, email: str, version: str = None, image = Non
 	if len(sites) == 0:
 		sites = [
             "hrms-demo.assimilate.co.in",
-            "crm-demo.assimilate.co.in",
-            "ams-demo.assimilate.co.in",
-            "helpdesk-demo.assimilate.co.in",
-            "hms-demo.assimilate.co.in",
-            "erp-demo.assimilate.co.in",
-            "rms-demo.assimilate.co.in",
-            "all-demo.assimilate.co.in"
 			]
 
 	if check_repo_exists():
