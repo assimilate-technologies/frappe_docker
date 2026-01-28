@@ -45,20 +45,23 @@ Then edit `.env` and set variables according to your needs.
 
 ## HTTPS & SSL Configuration
 
-| Variable            | Purpose                                          | Default | When to Set                              |
-| ------------------- | ------------------------------------------------ | ------- | ---------------------------------------- |
-| `LETSENCRYPT_EMAIL` | Email for Let's Encrypt certificate registration | —       | Required if using HTTPS override         |
-| `SITES`             | List of domains for SSL certificates             | —       | Required if using reverse proxy override |
+| Variable            | Purpose                                                       | Default | When to Set                              |
+| ------------------- | ------------------------------------------------------------- | ------- | ---------------------------------------- |
+| `LETSENCRYPT_EMAIL` | Email for Let's Encrypt certificate registration              | —       | Required if using HTTPS override         |
+| `SITES_RULE`        | List of domains for SSL (Traefik rule for TLS domain routing) | —       | Required if using reverse proxy override |
 
-**Format for `SITES`:**
+**Format for `SITES_RULE`:**
 
 ```bash
 # Single site
-SITES=`mysite.example.com`
+SITES_RULE=Host(`mysite.example.com`)
 
-# Wildcard (any subdomain)
-SITES=`{any:.+}`
+# Multiple sites
+SITES_RULE=Host(`a.example.com`) || Host(`b.example.com`)
 ```
+
+> Note: The Traefik v3 migration is complete. Use `SITES_RULE` as a full v3 rule expression; `SITES` is deprecated.
+> Rule syntax now defaults to v3, so no `core.defaultRuleSyntax` or per-router `ruleSyntax` settings are required.
 
 ---
 
